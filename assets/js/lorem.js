@@ -1,0 +1,4 @@
+
+const words='teste software qualidade automação cenário validação sistema aplicação ambiente desenvolvimento requisito usuário serviço integração dados processo equipe resultado cobertura execução evidência comportamento funcionalidade desempenho segurança navegador dispositivo entrega melhoria análise produto código'.split(' ');
+function sentence(){const n=8+Math.floor(Math.random()*10);let s=Array.from({length:n},()=>words[Math.floor(Math.random()*words.length)]).join(' ');return s[0].toUpperCase()+s.slice(1)+'.';}
+$('#generate')?.addEventListener('click',()=>{const n=Math.min(20,Math.max(1,Number($('#count').value)||3));$('#result').textContent=Array.from({length:n},()=>Array.from({length:3+Math.floor(Math.random()*3)},sentence).join(' ')).join('\n\n');showStatus(`${n} parágrafo(s) gerado(s).`);});

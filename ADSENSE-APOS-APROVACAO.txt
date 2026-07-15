@@ -1,0 +1,4 @@
+<!-- Cole no <head> somente após obter seu ID oficial -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-SEU_ID" crossorigin="anonymous"></script>
+
+<!-- Exemplo de unidade: use o código gerado na sua conta, não copie valores fictícios -->

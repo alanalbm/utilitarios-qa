@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://alanalbm.github.io/utilsQA/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://alanalbm.github.io/utilsQA/ferramentas/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://alanalbm.github.io/utilsQA/ferramentas/documentos-teste.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://alanalbm.github.io/utilsQA/ferramentas/formatador-json.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://alanalbm.github.io/utilsQA/ferramentas/gerador-uuid.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://alanalbm.github.io/utilsQA/ferramentas/base64.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://alanalbm.github.io/utilsQA/ferramentas/url-encode-decode.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://alanalbm.github.io/utilsQA/ferramentas/conversor-timestamp.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://alanalbm.github.io/utilsQA/ferramentas/testador-regex.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://alanalbm.github.io/utilsQA/ferramentas/gerador-hash.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://alanalbm.github.io/utilsQA/ferramentas/lorem-ipsum-qa.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://alanalbm.github.io/utilsQA/ferramentas/formatador-xml.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://alanalbm.github.io/utilsQA/ferramentas/gerador-dados-ficticios.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://alanalbm.github.io/utilsQA/guias/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://alanalbm.github.io/utilsQA/guias/como-criar-massa-de-teste.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://alanalbm.github.io/utilsQA/guias/json-em-testes-de-api.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://alanalbm.github.io/utilsQA/guias/regex-para-qa.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://alanalbm.github.io/utilsQA/guias/uuid-timestamp-integracoes.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://alanalbm.github.io/utilsQA/sobre.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://alanalbm.github.io/utilsQA/privacidade.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://alanalbm.github.io/utilsQA/termos.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://alanalbm.github.io/utilsQA/contato.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+</urlset>

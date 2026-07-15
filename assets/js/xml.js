@@ -1,0 +1,3 @@
+
+function formatXml(xml){const doc=new DOMParser().parseFromString(xml,'application/xml');const err=doc.querySelector('parsererror');if(err)throw new Error(err.textContent.split('\n')[0]);const serializer=new XMLSerializer();let str=serializer.serializeToString(doc).replace(/>\s*</g,'><');let formatted='',pad=0;str.split(/(?=<)|(?<=>)/g).filter(Boolean).forEach(node=>{if(/^<\//.test(node))pad--;formatted+='  '.repeat(Math.max(0,pad))+node.trim()+'\n';if(/^<[^!?/][^>]*[^/]?>$/.test(node)&&!/<\/[^>]+>$/.test(node))pad++;});return formatted.trim();}
+$('#format')?.addEventListener('click',()=>{try{$('#output').value=formatXml($('#input').value);showStatus('XML válido e formatado.');}catch(e){showStatus(`XML inválido: ${e.message}`,'error')}});
