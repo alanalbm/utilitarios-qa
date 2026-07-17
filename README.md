@@ -1,41 +1,13 @@
-# QA Tools — portal estático para GitHub Pages
+# Utilitários QA v3
 
-Projeto multipágina em HTML, CSS e JavaScript, sem dependências e compatível com GitHub Pages.
+- 24 ferramentas funcionais
+- 6 guias
+- Google Analytics `G-MM48KQ55RP` com consentimento
+- Search Console, sitemap, robots, canonical e Schema.org
+- Busca, tema escuro, favoritos, recentes e PWA
 
-## Publicação
+## Publicar
+Copie todo o conteúdo desta pasta para a raiz do repositório `utilitarios-qa`, mantendo o arquivo `CNAME`. Faça commit e aguarde o GitHub Pages.
 
-1. Faça backup do repositório atual.
-2. Substitua os arquivos da branch publicada pelo conteúdo desta pasta.
-3. Faça commit e push.
-4. Em **Settings > Pages**, mantenha a publicação pela branch principal e pasta raiz.
-5. Abra `https://utilitariosqa.com.br/` e teste os links.
-
-## Ajustes obrigatórios antes de divulgar
-
-- O contato está direcionado para as Issues do repositório. Você pode substituí-lo por um e-mail dedicado quando desejar.
-- Revise os textos de Sobre, Privacidade e Termos para refletirem exatamente sua operação.
-- Caso compre domínio, substitua as URLs canônicas, `sitemap.xml` e `robots.txt`.
-- Não coloque uma linha falsa em `ads.txt`.
-
-## AdSense
-
-Os blocos de anúncio já existem no HTML, mas ficam ocultos por padrão. Depois da aprovação:
-
-1. Adicione o script oficial do AdSense no `<head>` de todas as páginas.
-2. Substitua o conteúdo dos blocos `.ad-slot` pelas unidades oficiais e adicione `data-active="true"`, ou habilite anúncios automáticos.
-3. Publique em `ads.txt` exatamente a linha exibida na sua conta.
-4. Configure consentimento de cookies quando necessário.
-
-A estrutura melhora a qualidade do site, mas nenhuma implementação garante aprovação.
-
-## Versão 2.0 — domínio próprio e Search Console
-
-Esta versão está configurada para **https://utilitariosqa.com.br/** e inclui:
-
-- Meta tag de verificação do Google Search Console na página inicial;
-- URLs canônicas, Open Graph e dados estruturados usando o domínio próprio;
-- `CNAME`, `sitemap.xml` e `robots.txt` atualizados;
-- Manifesto PWA, ícones e imagem de compartilhamento;
-- Service worker leve para suporte offline básico.
-
-Após publicar todos os arquivos na raiz do repositório, volte ao Search Console e clique em **Verificar**. Não remova a meta tag depois da confirmação.
+## Testar Analytics
+Abra o site, aceite métricas e consulte o relatório Tempo real.
