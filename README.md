@@ -8,7 +8,7 @@ Projeto multipágina em HTML, CSS e JavaScript, sem dependências e compatível 
 2. Substitua os arquivos da branch publicada pelo conteúdo desta pasta.
 3. Faça commit e push.
 4. Em **Settings > Pages**, mantenha a publicação pela branch principal e pasta raiz.
-5. Abra `https://alanalbm.github.io/utilsQA/` e teste os links.
+5. Abra `https://utilitariosqa.com.br/` e teste os links.
 
 ## Ajustes obrigatórios antes de divulgar
 
@@ -27,3 +27,15 @@ Os blocos de anúncio já existem no HTML, mas ficam ocultos por padrão. Depois
 4. Configure consentimento de cookies quando necessário.
 
 A estrutura melhora a qualidade do site, mas nenhuma implementação garante aprovação.
+
+## Versão 2.0 — domínio próprio e Search Console
+
+Esta versão está configurada para **https://utilitariosqa.com.br/** e inclui:
+
+- Meta tag de verificação do Google Search Console na página inicial;
+- URLs canônicas, Open Graph e dados estruturados usando o domínio próprio;
+- `CNAME`, `sitemap.xml` e `robots.txt` atualizados;
+- Manifesto PWA, ícones e imagem de compartilhamento;
+- Service worker leve para suporte offline básico.
+
+Após publicar todos os arquivos na raiz do repositório, volte ao Search Console e clique em **Verificar**. Não remova a meta tag depois da confirmação.

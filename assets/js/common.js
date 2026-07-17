@@ -6,3 +6,4 @@ async function copyText(text){try{await navigator.clipboard.writeText(text);show
 $$('[data-copy-target]').forEach(b=>b.addEventListener('click',()=>{const el=$(b.dataset.copyTarget);copyText(el.value||el.textContent);}));
 const year=$('#year');if(year)year.textContent=new Date().getFullYear();
 const search=$('#tool-search');if(search){search.addEventListener('input',()=>{const q=search.value.toLowerCase().trim();$$('[data-tool]').forEach(card=>card.classList.toggle('hidden',!card.dataset.tool.includes(q)));});}
+if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('/service-worker.js').catch(()=>{}));}
