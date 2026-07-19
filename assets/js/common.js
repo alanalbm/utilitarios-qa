@@ -273,32 +273,55 @@
     if (event.key === 'Escape') closeSearch();
   });
 
-  const catalogInput = $('#tool-search');
-  const categoryButtons = $$('[data-category-filter]');
-  const catalogCards = $$('[data-tool-card]', $('#catalog-grid') || document);
-  let activeCategory = 'Todos';
+  const catalogInput = $('#catalog-search') || $('#tool-search');
+  const categoryButtons = $$('[data-category]');
+  const categorySections = $$('[data-catalog-category]');
+  const categoryGrids = $$('[data-tool-grid]');
+  let activeCategory = 'all';
+
+  if (categoryGrids.length) {
+    categoryGrids.forEach((grid) => {
+      const category = grid.dataset.categoryName;
+      grid.innerHTML = tools.filter((tool) => tool.category === category).map((tool) => toolCardHtml(tool)).join('');
+    });
+  }
+
   const filterCatalog = () => {
-    if (!catalogCards.length) return;
+    const cards = $$('[data-tool-card]');
+    if (!cards.length) return;
     const query = (catalogInput?.value || '').trim().toLowerCase();
     let visible = 0;
-    catalogCards.forEach((card) => {
-      const categoryOk = activeCategory === 'Todos' || card.dataset.category === activeCategory;
+    cards.forEach((card) => {
+      const categoryOk = activeCategory === 'all' || card.dataset.category === activeCategory;
       const queryOk = !query || (card.dataset.search || '').includes(query);
       const show = categoryOk && queryOk;
       card.hidden = !show;
       if (show) visible += 1;
     });
-    const count = $('#catalog-count');
-    if (count) count.textContent = `${visible} ferramenta${visible === 1 ? '' : 's'}`;
-    $('#catalog-empty')?.classList.toggle('hidden', visible !== 0);
+    categorySections.forEach((section) => {
+      section.hidden = !$$('[data-tool-card]', section).some((card) => !card.hidden);
+    });
+    const empty = $('#catalog-empty');
+    if (empty) empty.hidden = visible !== 0;
   };
-  catalogInput?.addEventListener('input', filterCatalog);
-  categoryButtons.forEach((button) => button.addEventListener('click', () => {
-    activeCategory = button.dataset.categoryFilter;
-    categoryButtons.forEach((item) => item.classList.toggle('active', item === button));
+
+  const selectCategory = (value) => {
+    activeCategory = value || 'all';
+    categoryButtons.forEach((button) => button.classList.toggle('active', button.dataset.category === activeCategory));
     filterCatalog();
-  }));
-  filterCatalog();
+  };
+
+  catalogInput?.addEventListener('input', filterCatalog);
+  categoryButtons.forEach((button) => button.addEventListener('click', () => selectCategory(button.dataset.category)));
+  if (catalogInput || categoryButtons.length) {
+    const params = new URLSearchParams(location.search);
+    const qParam = params.get('q');
+    const categoryParam = params.get('categoria');
+    if (qParam && catalogInput) catalogInput.value = qParam;
+    if (categoryParam && tools.some((tool) => tool.category === categoryParam)) activeCategory = categoryParam;
+    selectCategory(activeCategory);
+  }
+
 
   const cookieBanner = $('#cookie-banner');
   const updateConsent = (choice) => {
