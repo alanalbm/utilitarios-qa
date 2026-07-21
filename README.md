@@ -1,25 +1,34 @@
-# Utilitários QA — Ferramentas Online para Desenvolvimento, Documentos e Produtividade
+# Utilitários QA v5 Global
 
-Portal estático com **59 ferramentas** e **20 guias de QA**, preparado para GitHub Pages e domínio próprio.
+Portal estático multilíngue para GitHub Pages, com foco em desenvolvimento, documentos, produtividade e qualidade de software.
+
+## Conteúdo
+
+- 127 ferramentas em português, inglês e espanhol.
+- 40 guias em português, 20 em inglês e 12 em espanhol.
+- 17 categorias, 8 coleções, glossário e 10 modelos para download em cada idioma.
+- 577 páginas HTML e 576 URLs indexáveis.
+- Search Console, Analytics com consentimento, canonical, hreflang e sitemaps por idioma.
+- PWA, modo escuro, busca, favoritos, histórico, compartilhamento e feedback.
 
 ## Publicação
 
-Copie todo o conteúdo desta pasta para a raiz do repositório `utilitarios-qa`. O arquivo `CNAME` mantém o domínio `utilitariosqa.com.br`.
+Copie todo o conteúdo desta pasta para a raiz do repositório `utilitarios-qa`. O arquivo `CNAME` mantém `utilitariosqa.com.br`.
 
-## Recursos
+Leia também:
 
-- HTML, CSS e JavaScript sem backend próprio.
-- Google Analytics `G-MM48KQ55RP` com consentimento.
-- Search Console, sitemap, robots, canonical, Open Graph e dados estruturados.
-- Ferramentas de PDF, imagens, calculadoras, texto, QR Code, APIs e QA.
-- Processamento local dos arquivos sempre que indicado na página.
+- `PUBLICAR-NO-GITHUB.md`
+- `RELATORIO-DA-VERSAO.md`
+- `SEO-APOS-PUBLICAR.md`
+- `ADSENSE-APOS-APROVACAO.txt`
 
-## Bibliotecas incluídas localmente
+## Validação recomendada
 
-- pdf-lib, PDF.js e JSZip para operações com PDF.
-- QRCode, jsQR e JsBarcode para códigos.
-- Marked e DOMPurify para o editor Markdown.
+1. Conferir o deploy em `https://utilitariosqa.com.br/`.
+2. Enviar novamente `sitemap.xml` ao Search Console.
+3. Testar páginas PT/EN/ES e ferramentas de arquivo no Chrome.
+4. Acompanhar eventos `tool_use`, `download_file`, `tool_feedback` e `share_tool`.
 
-## Antes do AdSense
+## Observação
 
-Não adicione ID fictício. Atualize `ads.txt`, política de privacidade e blocos de anúncio somente após receber o código oficial da conta.
+SEO melhora rastreamento, relevância, organização e experiência, mas não garante posição específica no Google.

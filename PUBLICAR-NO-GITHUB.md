@@ -2,24 +2,11 @@
 
 1. Faça backup do repositório atual.
 2. Extraia o ZIP.
-3. Copie **o conteúdo de dentro da pasta** para a raiz do repositório `utilitarios-qa`.
-4. Confirme que `index.html`, `CNAME`, `assets`, `ferramentas` e `guias` ficaram na raiz.
-5. Faça commit e push.
-6. Aguarde alguns minutos e abra `https://utilitariosqa.com.br/`.
-7. Teste em janela anônima e no celular.
+3. Copie todo o conteúdo de `utilitarios-qa-v5-global` para a raiz do repositório.
+4. Faça commit e push.
+5. Aguarde o GitHub Actions/Pages concluir o deploy.
+6. Abra a página inicial e teste uma ferramenta antiga, uma nova, um PDF e uma página em inglês.
+7. No Search Console, envie `sitemap.xml`.
+8. Não remova `CNAME`, `.nojekyll` nem a meta tag de verificação.
 
-## Depois de publicar
-
-- Verifique o Google Analytics em **Tempo real**.
-- Abra `https://utilitariosqa.com.br/sitemap.xml`.
-- No Search Console, envie novamente `sitemap.xml` apenas se necessário.
-- Teste as páginas de PDF, QR Code, calculadoras e ferramentas de QA.
-- Não altere o arquivo `CNAME`.
-
-## Cache
-
-A versão usa um novo cache `uq-v4-shell`. Caso veja conteúdo antigo, recarregue com `Ctrl + F5` ou limpe os dados do site no navegador.
-
-## AdSense
-
-Os espaços de anúncio permanecem desativados. Use somente o código oficial após aprovação e revise política de privacidade, consentimento e `ads.txt`.
+O projeto não precisa de backend para as funções implementadas; o GitHub Pages entrega os arquivos estáticos e o navegador processa as ferramentas.

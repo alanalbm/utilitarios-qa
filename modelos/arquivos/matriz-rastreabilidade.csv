@@ -1,0 +1,2 @@
+requisito,descricao,risco,casos_teste,execucao,defeitos,cobertura
+REQ-001,Exemplo de requisito,Alto,"TC-001;TC-002",Pendente,,Planejada

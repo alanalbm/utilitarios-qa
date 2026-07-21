@@ -1,0 +1,2 @@
+requirement,description,risk,test_cases,execution,defects,coverage
+REQ-001,Example requirement,High,"TC-001;TC-002",Pending,,Planned

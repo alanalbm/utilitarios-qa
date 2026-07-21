@@ -1,0 +1,5 @@
+item,R1,R2,R3,R4
+Condicao A,S,S,N,N
+Condicao B,S,N,S,N
+Acao X,X,,,
+Acao Y,,X,X,X

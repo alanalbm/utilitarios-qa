@@ -1,0 +1,5 @@
+elemento,R1,R2,R3,R4
+Condición A,S,S,N,N
+Condición B,S,N,S,N
+Acción X,X,,,
+Acción Y,,X,X,X

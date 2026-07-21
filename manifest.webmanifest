@@ -1,13 +1,18 @@
 {
-  "name": "Utilitários QA — Ferramentas Online para Desenvolvimento, Documentos e Produtividade",
+  "name": "Utilitários QA — Ferramentas Online",
   "short_name": "Utilitários QA",
-  "description": "Ferramentas online para desenvolvimento, documentos, produtividade e QA.",
+  "description": "127 ferramentas para desenvolvimento, documentos, produtividade e qualidade de software.",
+  "lang": "pt-BR",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "background_color": "#f6f8fc",
-  "theme_color": "#2257d7",
-  "lang": "pt-BR",
+  "background_color": "#f5f7fb",
+  "theme_color": "#3157d5",
+  "categories": [
+    "utilities",
+    "productivity",
+    "developer tools"
+  ],
   "icons": [
     {
       "src": "assets/img/icon-192.png",

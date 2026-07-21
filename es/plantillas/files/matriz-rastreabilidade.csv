@@ -1,0 +1,2 @@
+requisito,descripcion,riesgo,casos_prueba,ejecucion,defectos,cobertura
+REQ-001,Requisito de ejemplo,Alto,"TC-001;TC-002",Pendiente,,Planificada

@@ -1,0 +1,5 @@
+item,R1,R2,R3,R4
+Condition A,Y,Y,N,N
+Condition B,Y,N,Y,N
+Action X,X,,,
+Action Y,,X,X,X

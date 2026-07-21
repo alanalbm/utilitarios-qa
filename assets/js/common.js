@@ -345,3 +345,85 @@
     window.addEventListener('load', () => navigator.serviceWorker.register(`${root}service-worker.js`).catch(() => {}));
   }
 })();
+
+// Global v5 enhancements: language switcher, lightweight locale suggestion and product feedback.
+(() => {
+  'use strict';
+  const $ = (s, scope = document) => scope.querySelector(s);
+  const $$ = (s, scope = document) => [...scope.querySelectorAll(s)];
+  const lang = document.body?.dataset.lang || 'pt';
+  const labels = {
+    pt: { helpful: 'Esta ferramenta resolveu sua tarefa?', yes: 'Sim, resolveu', no: 'Ainda não', thanks: 'Obrigado pelo feedback.', share: 'Compartilhar', copied: 'Link copiado.', suggest: 'Parece que seu navegador está em outro idioma.', open: 'Abrir versão em português', dismiss: 'Agora não' },
+    en: { helpful: 'Did this tool solve your task?', yes: 'Yes, it did', no: 'Not yet', thanks: 'Thanks for your feedback.', share: 'Share', copied: 'Link copied.', suggest: 'A version that matches your browser language is available.', open: 'Open English version', dismiss: 'Not now' },
+    es: { helpful: '¿Esta herramienta resolvió tu tarea?', yes: 'Sí, la resolvió', no: 'Todavía no', thanks: 'Gracias por tu opinión.', share: 'Compartir', copied: 'Enlace copiado.', suggest: 'Hay una versión que coincide con el idioma de tu navegador.', open: 'Abrir versión en español', dismiss: 'Ahora no' }
+  }[lang] || {};
+
+  const languageMenu = $('.language-menu');
+  const languageToggle = $('.language-toggle');
+  languageToggle?.addEventListener('click', (event) => {
+    event.stopPropagation();
+    languageMenu?.classList.toggle('open');
+  });
+  document.addEventListener('click', (event) => {
+    if (!event.target.closest('.language-menu')) languageMenu?.classList.remove('open');
+  });
+
+  // Keep language switch links aligned with hreflang equivalents on every page.
+  const alternates = Object.fromEntries($$('link[rel="alternate"][hreflang]').map((link) => [link.hreflang, link.href]));
+  $$('.language-popover a').forEach((anchor) => {
+    const target = anchor.lang === 'pt-BR' ? 'pt-BR' : anchor.lang;
+    if (alternates[target]) anchor.href = alternates[target];
+  });
+
+  const toolPanel = $('.tool-panel');
+  const toolSlug = document.body?.dataset.toolSlug;
+  if (toolPanel && toolSlug && !$('.tool-feedback')) {
+    const feedback = document.createElement('section');
+    feedback.className = 'tool-feedback';
+    feedback.innerHTML = `<div><strong>${labels.helpful}</strong><span class="small muted">Feedback anônimo, sem enviar o conteúdo usado na ferramenta.</span></div><div class="feedback-actions"><button class="btn btn-secondary" data-feedback="yes">${labels.yes}</button><button class="btn btn-secondary" data-feedback="no">${labels.no}</button><button class="btn btn-secondary" data-share-tool>${labels.share}</button></div>`;
+    toolPanel.appendChild(feedback);
+    feedback.addEventListener('click', async (event) => {
+      const answer = event.target.closest('[data-feedback]');
+      if (answer) {
+        window.trackAction?.('tool_feedback', { response: answer.dataset.feedback });
+        feedback.querySelector('strong').textContent = labels.thanks;
+        feedback.querySelectorAll('[data-feedback]').forEach((button) => button.disabled = true);
+      }
+      if (event.target.closest('[data-share-tool]')) {
+        try {
+          if (navigator.share) await navigator.share({ title: document.title, url: location.href });
+          else { await navigator.clipboard.writeText(location.href); window.showStatus?.(labels.copied, 'success'); }
+          window.trackAction?.('share_tool');
+        } catch (_) { /* User may cancel share. */ }
+      }
+    });
+  }
+
+  // Suggest, never force, the matching language. This avoids intrusive redirects and preserves crawlable URLs.
+  try {
+    const browser = (navigator.language || '').toLowerCase();
+    const desired = browser.startsWith('es') ? 'es' : browser.startsWith('en') ? 'en' : 'pt-BR';
+    const current = lang === 'pt' ? 'pt-BR' : lang;
+    const key = `uq-language-suggestion-${desired}`;
+    if (desired !== current && alternates[desired] && !sessionStorage.getItem(key)) {
+      const banner = document.createElement('aside');
+      banner.className = 'language-suggestion';
+      banner.innerHTML = `<span>🌐 ${labels.suggest}</span><a class="btn btn-primary" href="${alternates[desired]}">${desired === 'en' ? 'Open English version' : desired === 'es' ? 'Abrir versión en español' : 'Abrir em português'}</a><button class="icon-btn" aria-label="${labels.dismiss}">×</button>`;
+      document.body.appendChild(banner);
+      banner.querySelector('button').addEventListener('click', () => { sessionStorage.setItem(key, '1'); banner.remove(); });
+    }
+  } catch (_) { /* Session storage may be blocked. */ }
+
+  // Reading progress for long guides.
+  if ($('.guide-article')) {
+    const progress = document.createElement('div'); progress.className = 'reading-progress'; progress.innerHTML = '<span></span>'; document.body.appendChild(progress);
+    const update = () => {
+      const article = $('.guide-article'); if (!article) return;
+      const rect = article.getBoundingClientRect();
+      const total = article.offsetHeight - innerHeight;
+      const done = Math.max(0, Math.min(1, (-rect.top + 90) / Math.max(1, total)));
+      progress.firstElementChild.style.transform = `scaleX(${done})`;
+    };
+    addEventListener('scroll', update, { passive: true }); update();
+  }
+})();

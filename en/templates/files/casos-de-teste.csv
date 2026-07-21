@@ -1,0 +1,2 @@
+id,title,objective,preconditions,data,steps,expected_result,priority,tags
+TC-001,Example,Validate behavior,Active test user,fictional data,"1. Open; 2. Perform action",Observable result,High,smoke

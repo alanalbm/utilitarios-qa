@@ -1,0 +1,2 @@
+id,titulo,objetivo,pre-condicoes,dados,passos,resultado_esperado,prioridade,tags
+TC-001,Exemplo,Validar comportamento,Usuário de teste ativo,dados fictícios,"1. Acessar; 2. Executar ação",Resultado observável,Alta,smoke
